@@ -1,4 +1,5 @@
 # This file will be the program that runs the microservice and the Flask instance
+# Check README for detailed information on how to get things running locally
 
 from flask import Flask
 
