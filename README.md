@@ -1,8 +1,6 @@
 # KeywordShortcut
 The keyword shortcut microservice for our Group 25 team assignment
 
-This is A WORK IN PROGRESS and is effectively my first time at creating anything in Github
-
 !! UPDATED AS OF 11/14/26 !!
  - The keyword-search.py file will be removed, as its existence was redundant.
  - Shifted from using Flask to ZeroMQ. It will save the information sent to the
@@ -25,32 +23,28 @@ How to set up the keyword manager microservice:
 
 Basics of each function of the microservice:
 
-• "add"
-    {
+• request = {
         "action": "add"
         "item_id": "your item's key"
         "keywords": "whatever","keywords"
-    }
+  }
 
-• "search"
-    {
+• request = {
         "action": "search"
-        "keywords": "keywords"
-    }
+        "keyword": "keyword"
+  }
 
-• "edit"
-    {
+• request = {
         "action": "edit"
-        "operation": "add" -or- "remove"
+        "operation": "add_keyword" -or- "remove_keyword"
         "item_id": "item's key"
         "keywords": "keywords", "in", "question"
-    }
+  }
 
-• "delete"
-    {
-        "action": "delete"
-        "item_id": "item's key"
-
+• request = {
+              "action": "delete"
+              "item_id": "item's key"
+  }
 
 
 
