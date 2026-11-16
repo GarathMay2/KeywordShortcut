@@ -54,8 +54,7 @@ while True:
             # this
             if item_id is None:
                 socket.send_json({
-                    "success": False,
-                    "error": "Missing Entry: item_id"
+                    "success": False, "error": "Missing Entry: item_id"
                 })
                 continue
 
@@ -75,8 +74,7 @@ while True:
 
             if keywords is None:
                 socket.send_json({
-                    "success": False,
-                    "error": "Missing Entry: keyword"
+                    "success": False, "error": "Missing Entry: keyword"
                 })
                 continue
 
@@ -125,7 +123,9 @@ while True:
             # keyword_storage dictionary as JSON data
             with open("keywords.json", "w") as file:
                 json.dump(keyword_storage, file, indent=4)
-            socket.send_json({"success": True})
+            socket.send_json({
+                "success": True, "Confirmed": " Your Ticket has been submitted!"
+            })
 
 
     #
@@ -137,14 +137,13 @@ while True:
 
         # this initializes an empty list to store matched keywords
         matches = []
-        searched_keyword = request.get("keywords")
+        searched_keyword = request.get("keyword")
 
         # Same as in the add section, when the keyword
         # request is none, it will display this
         if searched_keyword is None:
             socket.send_json({
-                "success": False,
-                "error": "Keyword Field Empty"
+                "success": False, "error": "Keyword Field Empty"
             })
             continue
 
@@ -169,8 +168,7 @@ while True:
 
         # when the microservice is done searching, it will return the matches
         socket.send_json({
-            "success": True,
-            "item_ids": matches
+            "success": True, "item_ids": matches
         })
 
 
@@ -188,14 +186,12 @@ while True:
         # addition of operation
         if operation is None:
             socket.send_json({
-                "success": False,
-                "error": "Missing Entry: operation"
+                "success": False, "error": "Missing Entry: operation"
             })
             continue
         if item_id is None:
             socket.send_json({
-                "success": False,
-                "error": "Missing Entry: item_id"
+                "success": False, "error": "Missing Entry: item_id"
             })
             continue
 
@@ -215,8 +211,7 @@ while True:
 
         if keywords is None:
             socket.send_json({
-                "success": False,
-                "error": "Missing Entry: keyword"
+                "success": False, "error": "Missing Entry: keyword"
             })
             continue
 
@@ -277,7 +272,7 @@ while True:
             with open("keywords.json", "w") as file:
                 json.dump(keyword_storage, file, indent=4)
             socket.send_json({
-                "success": True
+                "success": True, "Confirmed": "Your keyword has been added to the ticket!"
             })
 
 
@@ -302,7 +297,7 @@ while True:
             with open("keywords.json", "w") as file:
                 json.dump(keyword_storage, file, indent=4)
             socket.send_json({
-                "success": True
+                "success": True, "Confirmed": "The keyword has been removed from the ticket!"
             })
 
         # if the operation tag does not include add or remove, an error is thrown
@@ -324,8 +319,7 @@ while True:
         # the same error handling as prior sections
         if item_id is None:
             socket.send_json({
-                "success": False,
-                "error": "Missing Entry: item_id"
+                "success": False, "error": "Missing Entry: item_id"
             })
             continue
 
@@ -354,7 +348,7 @@ while True:
         with open("keywords.json", "w") as file:
             json.dump(keyword_storage, file, indent=4)
         socket.send_json({
-            "success": True
+            "success": True, "Confirmed": " Your Ticket has been deleted!"
         })
 
 
@@ -362,8 +356,7 @@ while True:
     # displays
     else:
         socket.send_json({
-            "success": False,
-            "error": "Invalid Action: Expected 'add', 'search', 'edit', or 'delete'"
+            "success": False, "error": "Invalid Action: Expected 'add', 'search', 'edit', or 'delete'"
         })
 
 
