@@ -74,7 +74,7 @@ while True:
 
             if keywords is None:
                 socket.send_json({
-                    "success": False, "error": "Missing Entry: keyword"
+                    "success": False, "error": "Missing Entry: keywords"
                 })
                 continue
 
@@ -85,7 +85,7 @@ while True:
             # singular data-type check
             if not isinstance(keywords,list):
                 socket.send_json({
-                    "success": False, "error": "Invalid Type: Keywords must be string or list"
+                    "success": False, "error": "Invalid Type: keywords must be string or list"
                 })
                 continue
 
@@ -106,7 +106,7 @@ while True:
             # if there is a non-string in the list, an error will be thrown
             if invalid_type_keyword is True:
                 socket.send_json({
-                    "success": False, "error": "Invalid Type: Keywords must be a string"
+                    "success": False, "error": "Invalid Type: keywords must be a string"
                 })
                 continue
 
@@ -211,7 +211,7 @@ while True:
 
         if keywords is None:
             socket.send_json({
-                "success": False, "error": "Missing Entry: keyword"
+                "success": False, "error": "Missing Entry: keywords"
             })
             continue
 
@@ -257,7 +257,7 @@ while True:
             # empty list check
             if len(keywords) == 0:
                 socket.send_json({
-                    "success": False, "error": "Keyword list cannot be empty!"
+                    "success": False, "error": "keywords cannot be empty!"
                 })
                 continue
 
@@ -285,7 +285,7 @@ while True:
             # empty list check
             if len(keywords) == 0:
                 socket.send_json({
-                    "success": False, "error": "Keyword list cannot be empty!"
+                    "success": False, "error": "keywords cannot be empty!"
                 })
                 continue
 
