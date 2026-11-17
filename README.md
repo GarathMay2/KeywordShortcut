@@ -62,7 +62,7 @@ Basics of each function of the microservice:
         "action": "edit"
         "operation": "add_keyword" -or- "remove_keyword"
         "item_id": "item's key"
-        "keywords": "keywords", "in", "question"
+        "keywords": "keyword_to_be_edited"
   }
 
 • request = {
